@@ -97,12 +97,12 @@ namespace TestApp_Avalonia.ViewModels
             var songsNodes = document.DocumentNode.SelectNodes($"//body//music-container//music-container//{(isAlbum ? "music-text-row" : "music-image-row")}");
             for (int i = 0; i < songsNodes.Count; i++)
             {
-                Song song = new();
+                Song song;
                 if (isAlbum)
                 {
                     song = new()
                     {
-                        Name = songsNodes[i].Attributes["data-key"].Value,
+                        Name = Regex.Replace(songsNodes[i].Attributes["data-key"].Value, @"(null\d*)", ""),
                         ByArtist = playlist.ByArtist,
                         Album = playlist.Name,
                     };

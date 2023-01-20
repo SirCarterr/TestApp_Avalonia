@@ -12,7 +12,7 @@
 		<vm:MainWindowViewModel/>
 	</Design.DataContext>
 
-	<Grid ColumnDefinitions="1*, 2*, 2* 2*, 1*" RowDefinitions="1*, 1.5*, 0.1*, 2*, 4*, 1*">
+	<Grid ColumnDefinitions="0.5*, 2*, 2* 2*, 0.5*" RowDefinitions="1*, 1.5*, 0.1*, 2*, 4*, 1*">
 		<TextBox Text="{Binding Search.Url, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Watermark="Url" Margin="5"></TextBox>
 		<Button Grid.Row="1" Grid.Column="3" Command="{Binding OnClick}" Content="Parse playlist" HorizontalAlignment="Center" Background="LightBlue" Margin="5, 0"></Button>
 		
@@ -27,8 +27,8 @@
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<Border Padding="4">
-						<Grid ColumnDefinitions="2*, 2*, 2*, 1*">
-							<TextBlock Text="{Binding Name, Mode=TwoWay}" Grid.Column="0" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+						<Grid ColumnDefinitions="3*, 2*, 2*, 1*">
+							<TextBlock Text="{Binding Name, Mode=TwoWay}" Grid.Column="0" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
 							<TextBlock Text="{Binding ByArtist, Mode=TwoWay}" Grid.Column="1" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
 							<TextBlock Text="{Binding Album, Mode=TwoWay}" Grid.Column="2" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
 							<TextBlock Text="{Binding Duration, Mode=TwoWay}" Grid.Column="3" FontWeight="Thin" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
