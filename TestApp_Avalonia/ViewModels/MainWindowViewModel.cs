@@ -29,8 +29,11 @@ namespace TestApp_Avalonia.ViewModels
 
         public MainWindowViewModel()
         {
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+
             HtmlDocument htmlDoc = new();
-            htmlDoc.Load(@"D:\Projects\test\TestApp_Avalonia\TestApp_Avalonia\Files\PageDefault.htm");
+            htmlDoc.Load(projectDirectory + @"\Files\PageDefault.htm");
 
             bool isAlbum = Regex.IsMatch("albums", "(albums)");
             try
@@ -61,9 +64,12 @@ namespace TestApp_Avalonia.ViewModels
             var songsTemp = songs;
             bool isAlbum = Regex.IsMatch(Search.Url, "albums");
 
-            new WebClient().DownloadFile(Search.Url + @".mhtml", @"D:\Projects\test\TestApp_Avalonia\TestApp_Avalonia\Files\Page.htm");
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+
+            new WebClient().DownloadFile(Search.Url + @".mhtml", projectDirectory + @"\Files\Page.htm");
             HtmlDocument htmlDoc = new();
-            htmlDoc.Load(@"D:\Projects\test\TestApp_Avalonia\TestApp_Avalonia\Files\Page.htm");
+            htmlDoc.Load(projectDirectory + @"\Files\Page.htm");
             try
             {
                 SetPlaylist(htmlDoc, isAlbum);
