@@ -84,6 +84,11 @@ namespace TestApp_Avalonia.ViewModels
 
         private async void SetPlaylist(HtmlDocument document, bool isAlbum)
         {
+            if (!document.DocumentNode.SelectSingleNode("//body//div[@id='root']").ChildNodes.Any())
+            {
+                return;
+            }
+
             var playlistNode = document.DocumentNode.SelectSingleNode("//body//music-detail-header[@image-src]");
             Playlist = new()
             {
