@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TestApp_Avalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="TestApp_Avalonia.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="TestApp_Avalonia">
+
+	<Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
+
+	<Grid ColumnDefinitions="1*, 2*, 2* 2*, 1*" RowDefinitions="1*, 1.5*, 0.1*, 2*, 4*, 1*">
+		<TextBox Text="{Binding Search.Url, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Watermark="Url" Margin="5"></TextBox>
+		<Button Grid.Row="1" Grid.Column="3" Command="{Binding OnClick}" Content="Parse playlist" HorizontalAlignment="Center" Background="LightBlue" Margin="5, 0"></Button>
+		
+		<Image Source="{Binding Playlist.Avatar, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="10" Width="128" Height="128"></Image>
+		<Grid Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" RowDefinitions="1*, 1*, 1*">
+			<TextBlock Grid.Row="0" Text="{Binding Playlist.Name, Mode=TwoWay}" FontSize="16" FontWeight="Bold"></TextBlock>
+			<TextBlock Grid.Row="1" Text="{Binding Playlist.ByArtist, Mode=TwoWay}" FontSize="14"></TextBlock>
+			<TextBlock Grid.Row="2" Text="{Binding Playlist.Description, Mode=TwoWay}" VerticalAlignment="Top" FontSize="12"></TextBlock>
+		</Grid>
+		
+		<ListBox Items="{Binding Songs}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border Padding="4">
+						<Grid ColumnDefinitions="2*, 2*, 2*, 1*">
+							<TextBlock Text="{Binding Name, Mode=TwoWay}" Grid.Column="0" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+							<TextBlock Text="{Binding ByArtist, Mode=TwoWay}" Grid.Column="1" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+							<TextBlock Text="{Binding Album, Mode=TwoWay}" Grid.Column="2" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+							<TextBlock Text="{Binding Duration, Mode=TwoWay}" Grid.Column="3" FontWeight="Thin" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+</Window>
