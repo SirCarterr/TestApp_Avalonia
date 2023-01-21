@@ -10,7 +10,6 @@ namespace TestApp_Avalonia.Models
     public class Playlist
     {
         public string Name { get; set; }
-        public Bitmap Avatar { get; set; }
         public string ByArtist { get; set; }
         public string Description { get; set; }
     }

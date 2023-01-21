@@ -16,7 +16,7 @@
 		<TextBox Text="{Binding Search.Url, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Watermark="Url" Margin="5"></TextBox>
 		<Button Grid.Row="1" Grid.Column="3" Command="{Binding OnClick}" Content="Parse playlist" HorizontalAlignment="Center" Background="LightBlue" Margin="5, 0"></Button>
 		
-		<Image Source="{Binding Playlist.Avatar, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="10" Width="128" Height="128"></Image>
+		<Image Source="{Binding Avatar, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="10" Width="128" Height="128"></Image>
 		<Grid Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" RowDefinitions="1*, 1*, 1*">
 			<TextBlock Grid.Row="0" Text="{Binding Playlist.Name, Mode=TwoWay}" FontSize="16" FontWeight="Bold"></TextBlock>
 			<TextBlock Grid.Row="1" Text="{Binding Playlist.ByArtist, Mode=TwoWay}" FontSize="14"></TextBlock>
@@ -28,10 +28,10 @@
 				<DataTemplate>
 					<Border Padding="4">
 						<Grid ColumnDefinitions="3*, 2*, 2*, 1*">
-							<TextBlock Text="{Binding Name, Mode=TwoWay}" Grid.Column="0" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-							<TextBlock Text="{Binding ByArtist, Mode=TwoWay}" Grid.Column="1" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-							<TextBlock Text="{Binding Album, Mode=TwoWay}" Grid.Column="2" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-							<TextBlock Text="{Binding Duration, Mode=TwoWay}" Grid.Column="3" FontWeight="Thin" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+							<TextBlock Text="{Binding Name}" TextWrapping="Wrap" Grid.Column="0" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+							<TextBlock Text="{Binding ByArtist}" TextWrapping="Wrap" Grid.Column="1" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+							<TextBlock Text="{Binding Album}" TextWrapping="Wrap" Grid.Column="2" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+							<TextBlock Text="{Binding Duration}" Grid.Column="3" FontWeight="Thin" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
 						</Grid>
 					</Border>
 				</DataTemplate>
