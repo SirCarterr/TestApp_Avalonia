@@ -81,6 +81,8 @@ namespace TestApp_Avalonia.ViewModels
             actions.MoveToElement(element);
 
             HtmlDocument htmlDoc = new();
+            htmlDoc.LoadHtml(browser.PageSource);
+            SetPlaylist(htmlDoc, isAlbum);
             for (int i = 0; i < 5; i++)
             {
                 actions.ScrollByAmount(0, element.Size.Height);
