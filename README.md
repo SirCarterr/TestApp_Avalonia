@@ -1,2 +1,2 @@
 # TestApp_Avalonia
-App works fine, but all my attempts to parse url failed. Tried HtmlWeb, it cannot get right html from page (return html with such message: "we cannot have ejs escape our urls"), so I ended up with HtmlDocument and downolading html programmaticly. Downloaded html seemed correct but <div id="root"></div> in body was always empty. Only manual downoload of full html file will contain the custom elements. Project contains the file forlder with PageDefault to show condition if the html was fully dowloaded.
+Amazon music parsing app
